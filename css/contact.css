@@ -1,0 +1,229 @@
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.logo-icon {
+    margin-right: 8px;
+    font-size: 22px;
+}
+
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-right li a:hover {
+    color: #007bff;
+}
+
+.logo-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+
+ /* Tambahkan padding ke sisi kiri dan kanan agar tidak mepet */
+.skills-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 40px; /* memberi jarak samping */
+    box-sizing: border-box;
+}
+
+.skills-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.skills-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.skills-description {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    color: #555;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.skill-box {
+  background-color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.skill-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.skill-box h3 {
+  margin: 10px 0 5px;
+  color: #007bff;
+  font-size: 20px;
+}
+
+.skill-box p {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+  padding-left: 0cap;
+}
+
+/* Style untuk tombol */
+.skill-box button {
+    background-color: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.skill-box button:hover {
+    background-color: #0f6cd6;
+    transform: scale(1.05);
+}
+
+/* animasi kupu kupu */
+.butterfly-icon {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 65px; 
+    animation: flyAround 7s ease-in-out infinite; 
+    /* flyAround adalah nama animasi (lihat di bagian @keyframes).
+    7s artinya durasi animasi 7 detik per siklus.
+    ease-in-out memberi efek halus di awal dan akhir gerakan.
+    infinite membuat animasi terus berjalan tanpa henti. */
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes flyAround {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translate(40px, -20px) rotate(10deg);
+    }
+    50% {
+        transform: translate(80px, 20px) rotate(-10deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(40px, 40px) rotate(5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.7;
+    }
+    /* transform: translate(x, y) memindahkan posisi ikon:
+    40px ke kanan, -20px ke atas, dst.
+    rotate() memutar ikon (positif = searah jarum jam, negatif = berlawanan).
+    opacity mengubah tingkat transparansi (1 = padat, 0 = transparan) */
+}
+
+.home-box {
+    position: relative;
+    /* Supaya .butterfly-icon bisa diletakkan secara absolut relatif terhadap .home-box, kita perlu set .home-box sebagai konteks posisi dengan position: relative; */
+}
+
+.site-footer {
+    background: linear-gradient(135deg, #c262e7, #2899b8); /* gradasi hanya pinggir */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #e0e0e0;
+}

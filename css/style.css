@@ -1,0 +1,270 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.logo-icon {
+    margin-right: 8px;
+    font-size: 22px;
+}
+
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-right li a:hover {
+    color: #007bff;
+}
+
+.logo-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+/* HOME SECTION - latar luar (pinggir gradasi) */
+.home-section {
+    background: linear-gradient(135deg, #e6affc, #00c6ff); /* gradasi hanya pinggir */
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+}
+
+/* Kotak putih di tengah */
+.home-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 110px 40px;
+    max-width: 1200px;
+    width: 100%;
+    box-shadow: 0 0 2000px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* Konten di dalam kotak */
+.home-content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+.home-left {
+    flex: 1 1 50%;
+    min-width: 290px;
+    padding-right: 110px;
+    animation: fadeInLeft 1s ease-out forwards;
+    color: #333;
+}
+
+.home-left h1 {
+    font-size: 70px;
+    margin: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: fit-content;
+    border-right: 2px solid transparent;
+    animation: fadeInLeft 2s ease-out forwards;
+    color: #333;
+}
+
+
+.home-subtitle {
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #666;
+}
+
+.home-right {
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 4s ease-in-out infinite;
+}
+
+.home-image {
+    max-width: 100%;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.home-image:hover {
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-content {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .home-left, .home-right {
+        flex: 1 1 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .home-left h1 {
+        font-size: 36px;
+        white-space: normal;
+    }
+
+    .home-subtitle {
+        font-size: 16px;
+    }
+
+    .home-image {
+        width: 240px;
+        max-width: 100%;
+    }
+
+    .home-box {
+        padding: 40px 20px;
+    }
+}
+
+/* animasi kupu kupu */
+.butterfly-icon {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 65px; 
+    animation: flyAround 7s ease-in-out infinite; 
+    /* flyAround adalah nama animasi (lihat di bagian @keyframes).
+    7s artinya durasi animasi 7 detik per siklus.
+    ease-in-out memberi efek halus di awal dan akhir gerakan.
+    infinite membuat animasi terus berjalan tanpa henti. */
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes flyAround {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translate(40px, -20px) rotate(10deg);
+    }
+    50% {
+        transform: translate(80px, 20px) rotate(-10deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(40px, 40px) rotate(5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.7;
+    }
+    /* transform: translate(x, y) memindahkan posisi ikon:
+    40px ke kanan, -20px ke atas, dst.
+    rotate() memutar ikon (positif = searah jarum jam, negatif = berlawanan).
+    opacity mengubah tingkat transparansi (1 = padat, 0 = transparan) */
+}
+
+.home-box {
+    position: relative;
+    /* Supaya .butterfly-icon bisa diletakkan secara absolut relatif terhadap .home-box, kita perlu set .home-box sebagai konteks posisi dengan position: relative; */
+}
+
+
+.site-footer {
+    background: linear-gradient(135deg, #c262e7, #2899b8); /* gradasi hanya pinggir */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #e0e0e0;
+}
